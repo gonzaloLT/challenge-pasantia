@@ -1,0 +1,8 @@
+# Variables de entorno
+.env
+.env.local
+
+# Node
+node_modules/
+dist/
+build/
