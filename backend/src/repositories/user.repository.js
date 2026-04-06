@@ -34,7 +34,7 @@ const createUser = async (user) => {
 
     } catch (dbError) {
         if (dbError.code === '23505') {
-            const error = new Error('Username already exists');
+            const error = new Error('El nombre de usuario ya existe');
             error.type = 'CONFLICT';
             throw error;
         }
