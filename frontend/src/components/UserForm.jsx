@@ -6,18 +6,24 @@ export default function UserForm({ onSubmit, onClose, errorMessage }) {
         password: "",
         status: "activo",
     });
+    const [isLoading, setIsLoading] = useState(false);
 
     function handleChange(e) {
-        const { name, value, type, checked } = e.target;
+        const { name, value } = e.target;
         setForm({
             ...form,
-            [name]: type === "checkbox" ? checked : value,
+            [name]: value,
         });
     }
 
-    function handleSubmit(e) {
+    async function handleSubmit(e) {
         e.preventDefault();
-        onSubmit(form);
+        setIsLoading(true);
+        try {
+            await onSubmit(form);
+        } finally {
+            setIsLoading(false);
+        }
     }
 
     return (
@@ -113,9 +119,10 @@ export default function UserForm({ onSubmit, onClose, errorMessage }) {
                 </button>
                 <button
                     type="submit"
-                    className="px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded-lg font-medium transition-colors shadow-sm"
+                    disabled={isLoading}
+                    className="px-4 py-2 bg-blue-600 hover:bg-blue-700 disabled:bg-blue-400 text-white rounded-lg font-medium transition-colors shadow-sm"
                 >
-                    Guardar
+                    {isLoading ? "Guardando..." : "Guardar"}
                 </button>
             </div>
         </form>
