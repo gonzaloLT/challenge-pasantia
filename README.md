@@ -79,13 +79,3 @@ npm run dev
 | GET | `/api/users/:username/groups` | Obtener grupos de seguridad de un usuario |
 ---
 > **Nota:** El frontend consume únicamente `GET /api/users` y `POST /api/users`, correspondientes al listado y creación de usuarios requeridos en la consigna.
-
-
-## Niveles de acceso
-
-| ID | Nombre |
-|----|--------|
-| 1 | Read |
-| 2 | Write |
-| 3 | Administrator |
-| 4 | Owner |
