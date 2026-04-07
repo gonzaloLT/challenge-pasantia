@@ -1,4 +1,4 @@
-CREATE DATABASE challenge_pasantia
+CREATE DATABASE challenge_pasantia;
 
 CREATE TABLE users_base (
 	id SERIAL PRIMARY KEY,
